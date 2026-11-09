@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Arghavan Saatsaz, cybersecurity student and aspiring SOC analyst in McKinney, TX.">
+<style>[hidden]{display:none!important}body{margin:0}img{max-width:100%}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
+<title>Arghavan Saatsaz</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Caveat:wght@500;700&family=Courier+Prime&family=Figtree:wght@400;500;600&display=swap">
+<style>
+/* Layout: one tall taplink-style column of torn-paper bands (paper → denim → paper), each section a physical object: notebook, typewriter, folder tabs, metal tray, sketchbook, torn note. */
+:root{
+  --sky:#d5e6f5;          /* backdrop around the column */
+  --paper:#f2f3f1;        /* crumpled white paper */
+  --paper-2:#e6e8e6;
+  --ink:#15171b;
+  --ink-soft:#4a4f57;
+  --denim:#86a3c4;
+  --denim-deep:#5d7ea8;
+  --tab-grey:#cfd0cd;
+  --tab-blue:#a9c3de;
+  --steel-hi:#f4f5f7;
+  --steel-lo:#aeb3ba;
+  --star:#3d6db0;
+  --highlight:#cfe2f5;
+
+  --f-display:"Instrument Serif","Cormorant Garamond",Georgia,serif;
+  --f-body:"Figtree","Helvetica Neue",Arial,sans-serif;
+  --f-type:"Courier Prime","Courier New",monospace;
+  --f-hand:"Caveat","Bradley Hand","Segoe Print",cursive;
+
+  --col:560px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{
+  background:var(--sky);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.5;
+}
+.noise{
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .09 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"),
+  url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='600'><filter id='c'><feTurbulence type='turbulence' baseFrequency='.012' numOctaves='3' seed='4'/><feDiffuseLighting lighting-color='white' surfaceScale='2'><feDistantLight azimuth='45' elevation='60'/></feDiffuseLighting><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -.12 .12'/></filter><rect width='100%' height='100%' filter='url(%23c)'/></svg>");
+}
+.page{
+  max-width:var(--col);margin:24px auto;background-color:var(--paper);
+  box-shadow:0 1px 0 rgba(0,0,0,.08),0 18px 50px -20px rgba(40,70,110,.35);
+  overflow:hidden;position:relative;
+}
+@media (max-width:600px){.page{margin:0}}
+.wrap{padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+h1,h2{font-family:var(--f-display);font-weight:400;line-height:.9;margin:0;text-wrap:balance;letter-spacing:-.01em}
+h2{font-size:clamp(52px,14vw,72px);text-align:center;text-transform:uppercase}
+.hand{font-family:var(--f-hand)}
+a{color:inherit}
+:focus-visible{outline:2px dashed var(--star);outline-offset:3px}
+
+/* ---------- metallic pill button ---------- */
+.btn{
+  display:inline-block;text-decoration:none;font:500 17px/1 var(--f-body);color:var(--ink);
+  padding:14px 34px;border-radius:10px;border:0;cursor:pointer;min-width:230px;text-align:center;
+  background:linear-gradient(180deg,var(--steel-hi) 0%,#dfe1e4 45%,var(--steel-lo) 100%);
+  box-shadow:inset 0 1px 0 #fff,inset 0 -2px 3px rgba(0,0,0,.12),0 4px 0 #9aa0a8,0 8px 14px -6px rgba(0,0,0,.35);
+  transition:transform .12s,box-shadow .12s;position:relative;
+}
+.btn:hover{transform:translateY(1px)}
+.btn:active{transform:translateY(4px);box-shadow:inset 0 1px 0 #fff,0 0 0 #9aa0a8,0 3px 6px -3px rgba(0,0,0,.35)}
+.btn sup{font-size:12px;position:absolute;top:8px;margin-left:3px}
+.center{display:flex;justify-content:center}
+
+/* ---------- header ---------- */
+.top{display:flex;justify-content:space-between;align-items:center;padding-block:18px 0;position:relative;z-index:5}
+.socials{display:flex;gap:8px}
+.socials a{width:30px;height:30px;border-radius:50%;background:var(--ink);display:grid;place-items:center}
+.socials svg{width:16px;height:16px;fill:none;stroke:var(--paper);stroke-width:2}
+.menu summary{list-style:none;cursor:pointer;width:34px;height:28px;display:grid;align-content:center;gap:6px}
+.menu summary::-webkit-details-marker{display:none}
+.menu summary span{display:block;height:2px;background:var(--ink)}
+.menu nav{position:absolute;right:max(20px,env(safe-area-inset-right,0px));top:58px;background:var(--paper);padding:14px 22px;
+  box-shadow:0 10px 30px -10px rgba(0,0,0,.4);transform:rotate(1.5deg);display:grid;gap:6px;font-family:var(--f-type)}
+.menu nav a{text-decoration:none}
+.menu nav a:hover{text-decoration:underline}
+
+/* ---------- hero ---------- */
+.hero{text-align:center;padding-block:22px 10px}
+.hero h1{font-size:clamp(76px,22vw,124px);transform:scaleY(1.12);transform-origin:bottom;text-transform:uppercase;margin-top:6px}
+.name{font-family:var(--f-display);font-size:clamp(28px,8vw,38px);display:inline-block;background:var(--highlight);padding:0 8px;margin-top:2px;line-height:1.1}
+.role{margin:6px 0 0;font-size:15px}
+
+.collage{position:relative;height:440px;margin-top:14px}
+.collage > *{position:absolute}
+.sketchbook{left:22%;top:0;width:66%;height:150px;background:#fbfbfa;border:1px solid #d9dad8;box-shadow:0 6px 14px -8px rgba(0,0,0,.4);transform:rotate(1.5deg);padding:8px 10px;overflow:hidden}
+.sketchbook .label{position:absolute;left:58px;top:4px;font-size:24px;white-space:nowrap;color:#555;letter-spacing:.06em}
+.sketchbook .date{position:absolute;right:10px;top:6px;font-size:16px;color:#555}
+.sketchbook svg{position:absolute;left:0;bottom:0;width:100%;height:110px}
+.polaroid{background:#fff;padding:8px 8px 34px;box-shadow:0 10px 22px -10px rgba(0,0,0,.5)}
+.photo{position:relative;overflow:hidden;background:
+  radial-gradient(120% 80% at 70% 0%,#6ea7e6 0%,#3b78c7 45%,#2b5fa8 100%);}
+.photo::after{content:"";position:absolute;inset:0;background:radial-gradient(40% 30% at 20% 15%,rgba(255,255,255,.45),transparent 70%)}
+.photo .ph{position:absolute;inset:auto 0 12px;text-align:center;color:#fff;font-family:var(--f-hand);font-size:22px;z-index:1;opacity:.9}
+.photo .silhouette{position:absolute;left:50%;bottom:0;width:58%;transform:translateX(-50%);fill:rgba(15,28,50,.55)}
+.p-main{left:12%;top:110px;width:58%;transform:rotate(-1.5deg)}
+.p-main .photo{aspect-ratio:1.1}
+.p-bw{right:6%;top:205px;width:26%;transform:rotate(5deg);padding:6px 6px 22px}
+.p-bw .photo{aspect-ratio:.72;background:linear-gradient(#e9eaea,#9a9c9e)}
+.p-bw svg{position:absolute;inset:auto 0 0;width:100%;height:80%}
+.clip{width:22px;left:13%;top:96px;transform:rotate(-12deg);z-index:2}
+.star{fill:var(--star)}
+.s1{left:3%;top:20px;width:64px;transform:rotate(-14deg)}
+.s1 .star{fill:#cdd1d6;stroke:#8e949b;stroke-width:1}
+.ticket{left:4%;bottom:34px;background:#fff;border:1px dashed #9aa;padding:8px 14px;transform:rotate(-6deg);font-family:var(--f-type);font-size:12px;line-height:1.3;box-shadow:0 6px 12px -8px rgba(0,0,0,.5)}
+.ticket b{display:block;font-size:18px;letter-spacing:.08em}
+.scribble{right:5%;bottom:-4px;font-size:30px;transform:rotate(-8deg);line-height:.9;text-align:center}
+
+/* ---------- denim band ---------- */
+.denim{
+  position:relative;background-color:var(--denim);
+  background-image:
+    repeating-linear-gradient(45deg,rgba(255,255,255,.10) 0 1px,transparent 1px 3px),
+    repeating-linear-gradient(-45deg,rgba(20,40,70,.12) 0 1px,transparent 1px 4px),
+    radial-gradient(120% 60% at 50% 40%,rgba(255,255,255,.18),transparent 70%);
+}
+.torn{--depth:14px}
+.cta{padding-block:40px 36px;margin-top:-6px}
+
+/* about: paper in typewriter */
+.about{padding-block:10px 50px;display:flex;flex-direction:column;align-items:center}
+.sheet{
+  width:min(82%,380px);background:#fbfbf9;padding:22px 22px 30px;text-align:center;
+  font-family:var(--f-type);font-size:13.5px;line-height:1.45;position:relative;z-index:2;
+  box-shadow:0 8px 18px -10px rgba(0,0,0,.4);margin-bottom:-26px;
+}
+.sheet h3{font-family:var(--f-display);font-weight:400;font-size:34px;margin:0 0 10px;line-height:1;text-transform:uppercase}
+.sheet p{margin:0 0 10px}
+.machine{width:min(96%,460px);position:relative;z-index:1}
+.roller{height:30px;margin:0 6%;border-radius:15px;background:linear-gradient(#3a3c40,#121315 60%,#2b2d31);box-shadow:inset 0 2px 2px rgba(255,255,255,.25)}
+.roller::before,.roller::after{content:"";position:absolute;top:4px;width:9%;height:22px;border-radius:6px;background:linear-gradient(#d9dce0,#8b9097)}
+.roller::before{left:0}.roller::after{right:0}
+.body{margin-top:-4px;background:linear-gradient(#26282c,#0e0f11);border-radius:22px 22px 30px 30px;padding:18px 18px 26px;box-shadow:0 18px 30px -12px rgba(0,0,0,.6)}
+.body .plate{height:22px;margin:0 22% 16px;border-radius:4px;background:linear-gradient(#2f3236,#1a1b1e);box-shadow:inset 0 1px 0 rgba(255,255,255,.15);display:grid;place-items:center;color:#c9ccd1;font:600 10px/1 var(--f-body);letter-spacing:.3em}
+.keys{display:grid;gap:7px}
+.row{display:flex;justify-content:center;gap:5px}
+.key{width:clamp(18px,5.4vw,26px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 40% 35%,#fff,#d8dadc 55%,#8e9297);
+  box-shadow:0 3px 0 #000;display:grid;place-items:center;font:600 9px/1 var(--f-type);color:#222}
+.space{width:55%;height:14px;border-radius:7px;margin:4px auto 0;background:linear-gradient(#e8e9ea,#9da1a6);box-shadow:0 3px 0 #000}
+
+/* envelope */
+.note-band{padding-block:56px 64px;display:flex;justify-content:center}
+.envelope{position:relative;width:min(86%,380px);aspect-ratio:1.35;margin-top:70px}
+.env-back{position:absolute;inset:0;background:#e9e8e3;box-shadow:0 14px 26px -14px rgba(0,0,0,.45)}
+.env-flap{position:absolute;left:0;right:0;top:-48%;height:50%;background:#e2e1dc;clip-path:polygon(0 100%,50% 0,100% 100%)}
+.letter{position:absolute;left:8%;right:8%;top:-34%;background:#fdfdfb;padding:16px 18px 20px;transform:rotate(-4deg);font-size:16px;line-height:1.35;text-align:center;box-shadow:0 6px 14px -8px rgba(0,0,0,.4);z-index:1}
+.letter u{text-decoration-color:var(--ink);text-underline-offset:3px}
+.letter .sign{display:block;font-family:var(--f-hand);font-size:22px;margin-top:6px}
+.env-front{position:absolute;inset:0;z-index:2;background:#efeeea;clip-path:polygon(0 30%,50% 62%,100% 30%,100% 100%,0 100%)}
+.env-front svg{position:absolute;inset:0;width:100%;height:100%}
+
+/* ---------- services: folder tabs ---------- */
+.services{padding-block:46px 0;position:relative}
+.services h2{position:relative;display:block}
+.services .sub{display:block;text-align:right;margin:-12px 14% 18px 0;font-size:14px}
+.services .sub span{background:var(--highlight);padding:0 6px}
+.folders{display:grid}
+.folder{position:relative;padding:34px 0 22px;margin-top:-14px;background:var(--tab-grey);
+  box-shadow:0 -6px 12px -10px rgba(0,0,0,.45);}
+.folder:nth-child(even){background:var(--tab-blue)}
+.folder::before{content:"";position:absolute;top:-22px;width:46%;height:24px;background:inherit;border-radius:10px 10px 0 0;left:6%}
+.folder:nth-child(even)::before{left:auto;right:6%}
+.folder .in{display:grid;gap:2px;position:relative;z-index:1}
+.folder:nth-child(odd) .in{text-align:left}
+.folder:nth-child(even) .in{text-align:right}
+.folder h4{margin:0;font:600 15px/1.2 var(--f-body)}
+.folder p{margin:0;font-size:13.5px;color:var(--ink-soft)}
+.price{display:flex;align-items:center;gap:8px;font:500 15px var(--f-body);margin-top:4px}
+.folder:nth-child(even) .price::before{order:2}
+.price::before{content:"";flex:1;border-top:1.5px dashed var(--ink)}
+.price b{font-weight:600;font-variant-numeric:tabular-nums}
+
+/* ---------- portfolio tray ---------- */
+.work{padding-block:60px 50px}
+.paper-tag{background-color:var(--paper);display:block;width:max-content;max-width:100%;margin:0 auto -6px;padding:18px 26px 8px;position:relative;z-index:2}
+.tray{
+  margin:0 auto;width:min(100%,430px);padding:18px;border-radius:36px;
+  background:linear-gradient(145deg,#f7f8fa,#b9bec5 35%,#eef0f2 55%,#9aa0a8 100%);
+  box-shadow:0 18px 30px -14px rgba(0,0,0,.55),inset 0 2px 2px #fff;
+}
+.tray-in{border-radius:24px;background:linear-gradient(160deg,#c8cbd0,#e6e8ea 50%,#b2b6bc);padding:16px 14px 22px;
+  box-shadow:inset 0 3px 8px rgba(0,0,0,.35);display:grid;grid-template-columns:1fr 1fr;gap:14px 12px;position:relative}
+.card{background:#fff;padding:6px 6px 8px;box-shadow:0 6px 12px -6px rgba(0,0,0,.45);font-size:11px;line-height:1.25;text-decoration:none;color:var(--ink);transition:transform .2s}
+.card:hover{transform:rotate(0) scale(1.03)!important}
+.card .photo{aspect-ratio:1.15}
+.card b{display:block;font-size:12.5px;margin-top:6px}
+.card span{color:var(--ink-soft);font-size:10px;text-transform:uppercase;letter-spacing:.06em}
+.card:nth-child(1){transform:rotate(-3deg)}
+.card:nth-child(2){transform:rotate(2.5deg);margin-top:16px}
+.card:nth-child(3){transform:rotate(2deg)}
+.card:nth-child(4){transform:rotate(-2.5deg);margin-top:-8px}
+.tray .note{position:absolute;font-family:var(--f-hand);font-size:20px;color:var(--ink);pointer-events:none}
+.ph-a{background:linear-gradient(160deg,#9fc4ea,#4f86c6)}
+.ph-b{background:linear-gradient(170deg,#f1dcc2,#c98d5f 60%,#8a5a3c)}
+.ph-c{background:linear-gradient(180deg,#b9e3ee 0 45%,#f0d9a8 45% 70%,#5fb3c9 70%)}
+.ph-d{background:linear-gradient(160deg,#d3d6db,#7b828c)}
+.work .center{margin-top:30px}
+
+/* ---------- arts ---------- */
+.arts{padding-block:46px 50px}
+.strip{display:flex;gap:16px;overflow-x:auto;padding:22px 20px 18px;scroll-snap-type:x mandatory;scrollbar-width:thin}
+.pad{flex:0 0 min(62%,260px);scroll-snap-align:center;background:#fbfbfa;border:1px solid #d7d8d6;position:relative;padding:20px 10px 10px;box-shadow:0 8px 16px -10px rgba(0,0,0,.45)}
+.pad::before{content:"";position:absolute;top:-6px;left:10px;right:10px;height:12px;
+  background:radial-gradient(circle at 50% 50%,#2a2c30 2.2px,transparent 2.8px) 0 0/12px 12px repeat-x}
+.pad svg{width:100%;height:auto;display:block}
+.skill{min-height:190px;padding:4px 6px}.skill h5{font:400 30px/1 var(--f-display);margin:0 0 8px;text-transform:uppercase}.skill p{margin:0;font-family:var(--f-type);font-size:13px;line-height:1.5}
+.pad figcaption{font-family:var(--f-hand);font-size:19px;padding:4px 4px 0}
+.arts .center{margin-top:22px}
+
+/* ---------- faq ---------- */
+.faq-wrap{padding-block:20px 50px}
+.faq{
+  background:var(--tab-blue);padding:44px 28px 40px;position:relative;
+  background-image:linear-gradient(170deg,rgba(255,255,255,.28),transparent 60%);
+  box-shadow:0 14px 24px -14px rgba(30,60,100,.6);transform:rotate(-.8deg);
+}
+.faq h2{margin-bottom:22px}
+.faq details{border-bottom:1px solid rgba(21,23,27,.18)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:12px 0;font-size:15px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary i{font-style:normal;font-size:26px;font-weight:300;line-height:1;transition:transform .25s;flex:none}
+.faq details[open] summary i{transform:rotate(45deg)}
+.faq details p{margin:0 0 14px;font-family:var(--f-type);font-size:13.5px;max-width:60ch}
+
+/* ---------- contacts ---------- */
+.contact{padding-block:10px 60px;text-align:center}
+.contact h2{position:relative;z-index:2}
+.contact .polaroid{width:min(78%,330px);margin:-14px auto 0;transform:rotate(1.2deg);padding:10px 10px 14px}
+.contact .photo{aspect-ratio:1.25}
+.contact p{margin:20px 0 14px;font-size:16px}
+.stack{display:grid;justify-items:center;gap:16px}
+.email{font-family:var(--f-type);font-size:14px;display:flex;gap:10px;align-items:center;justify-content:center;flex-wrap:wrap;margin-top:6px}
+.email button{font:inherit;font-size:12px;border:1px solid var(--ink);background:transparent;padding:4px 10px;cursor:pointer;color:var(--ink)}
+footer{font-family:var(--f-hand);text-align:center;font-size:20px;padding-block:0 30px;color:var(--ink-soft)}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+</head>
+<body>
+<div class="page noise" id="top">
+
+  <header class="top wrap">
+    <div class="socials">
+      <a href="https://www.linkedin.com/in/arghavan-saatsaz" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M6 10v8M6 6v.5M10 18v-8M10 13.5c0-2 1.5-3.5 3.5-3.5S17 11.5 17 13.5V18"/></svg></a>
+      <a href="https://github.com/aransaat" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M9 19c-4 1.3-4-2-6-2.5M15 21v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1-.3-3.4 1.3a11.6 11.6 0 0 0-6.2 0C6.6 2.8 5.6 3.1 5.6 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4.2 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a>
+      <a href="#contacts" aria-label="Email"><svg viewBox="0 0 24 24"><rect x="3.5" y="6" width="17" height="12" rx="1.5"/><path d="M4 7l8 6 8-6"/></svg></a>
+    </div>
+    <details class="menu">
+      <summary aria-label="Menu"><span></span><span></span><span></span></summary>
+      <nav>
+        <a href="#about">About me</a><a href="#services">Experience</a><a href="#work">Projects</a>
+        <a href="#arts">Skills</a><a href="#faq">FAQ</a><a href="#contacts">Contacts</a>
+      </nav>
+    </details>
+  </header>
+
+  <section class="hero wrap">
+    <h1>Portfolio</h1>
+    <div class="name">Arghavan Saatsaz</div>
+    <p class="role">Cybersecurity Student &amp; Aspiring SOC Analyst</p>
+
+    <div class="collage" aria-hidden="true">
+      <svg class="s1" viewBox="0 0 100 100"><path class="star" d="M50 4l13 31 33 3-25 22 8 33-29-18-29 18 8-33L4 38l33-3z"/></svg>
+      <div class="sketchbook">
+        <span class="label hand">McKINNEY, TX</span><span class="date hand">est. 2023</span>
+        <svg data-skyline="7" viewBox="0 0 300 110" preserveAspectRatio="none"></svg>
+      </div>
+      <svg class="clip" viewBox="0 0 20 60"><path d="M6 50V12a4 4 0 0 1 8 0v34a6 6 0 0 1-12 0V8a8 8 0 0 1 16 0v40" fill="none" stroke="#9aa3ad" stroke-width="2.4" stroke-linecap="round"/></svg>
+      <div class="polaroid p-main">
+        <div class="photo">
+          <svg class="silhouette" viewBox="0 0 100 90"><circle cx="50" cy="28" r="17"/><path d="M14 90c2-26 18-40 36-40s34 14 36 40z"/></svg>
+          <span class="ph">your photo here</span>
+        </div>
+      </div>
+      <div class="polaroid p-bw"><div class="photo"><svg data-skyline="3" data-tall="1" viewBox="0 0 100 140" preserveAspectRatio="none"></svg></div></div>
+      <div class="ticket"><b>SECURITY+</b>CompTIA · certified<br>AWS AI Pract. · in progress</div>
+      <div class="scribble hand">$ whoami<br>defender ✶</div>
+    </div>
+  </section>
+
+  <div class="denim torn" data-torn="top">
+    <div class="cta center wrap"><a class="btn" href="#contacts">Get in touch</a></div>
+
+    <section class="about wrap" id="about">
+      <article class="sheet">
+        <h3>About me</h3>
+        <p>Hi! I'm Arghavan, a cybersecurity student at Collin College working toward a BAT in Cybersecurity.</p>
+        <p>I hold an AAS in Information Systems Cybersecurity, CompTIA Security+, and build hands-on AWS projects in compliance monitoring, IAM least-privilege design and anomaly detection.</p>
+        <p>For two years I've enforced HIPAA safeguards and access controls over patient data in high-volume pharmacies.</p>
+      </article>
+      <div class="machine" aria-hidden="true">
+        <div class="roller"></div>
+        <div class="body">
+          <div class="plate">PORTFOLIO</div>
+          <div class="keys" id="keys"></div>
+          <div class="space"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="noise torn" data-torn="top" style="background-color:var(--paper);margin-top:-14px;position:relative">
+    <div class="note-band wrap">
+      <div class="envelope">
+        <div class="env-back"></div>
+        <div class="env-flap"></div>
+        <div class="letter">Open to <u>SOC analyst</u>, <u>security analyst</u> and <u>cloud engineering</u> roles. Authorized to work in the US and willing to relocate.<span class="sign">with love ♡</span></div>
+        <div class="env-front"><svg id="envStars" viewBox="0 0 100 74" preserveAspectRatio="none"></svg></div>
+      </div>
+    </div>
+
+    <section class="services" id="services">
+      <div class="wrap">
+        <h2>Path<svg viewBox="0 0 100 100" style="width:40px;position:absolute;right:12%;top:-14px;transform:rotate(14deg)"><path class="star" d="M50 4l13 31 33 3-25 22 8 33-29-18-29 18 8-33L4 38l33-3z"/></svg></h2>
+        <span class="sub"><span>experience &amp; education</span></span>
+      </div>
+      <div class="folders">
+        <div class="folder noise"><div class="in wrap"><h4>Albertsons · Pharmacy Technician</h4><p>Guard HIPAA data for 200+ patients daily; triage 10+ system incidents a week</p><div class="price"><b>Jul 2024 – now</b></div></div></div>
+        <div class="folder noise"><div class="in wrap"><h4>Walgreens · Pharmacy Technician</h4><p>Enforced least-privilege access to patient records; diagnosed software failures</p><div class="price"><b>Feb – Jul 2024</b></div></div></div>
+        <div class="folder noise"><div class="in wrap"><h4>BAT, Cybersecurity</h4><p>Collin College · Frisco, TX</p><div class="price"><b>2026 – 2028</b></div></div></div>
+        <div class="folder noise"><div class="in wrap"><h4>AAS, Information Systems Cybersecurity</h4><p>Collin College · Frisco, TX</p><div class="price"><b>2025 – 2026</b></div></div></div>
+        <div class="folder noise"><div class="in wrap"><h4>AAS, Cloud Computing</h4><p>Collin College · Frisco, TX</p><div class="price"><b>2023 – 2025</b></div></div></div>
+        <div class="folder noise"><div class="in wrap"><h4>CompTIA Security+</h4><p>AWS Certified AI Practitioner in progress</p><div class="price"><b>certified</b></div></div></div>
+      </div>
+    </section>
+  </div>
+
+  <div class="denim torn" data-torn="top" style="margin-top:-10px">
+    <section class="work wrap" id="work">
+      <h2 class="paper-tag noise torn" data-torn="top">Projects</h2>
+      <div class="tray">
+        <div class="tray-in">
+          <a class="card" href="https://github.com/Aransaat/compliance-dashboard"><div class="photo ph-a"></div><b>Cloud Security Compliance Dashboard</b><span>AWS Config · Security Hub · QuickSight</span></a>
+          <a class="card" href="https://github.com/Aransaat/aithreatdetectionsystem"><div class="photo ph-d"></div><b>AI-Based Threat Detection</b><span>Python · ML · network telemetry</span></a>
+          <a class="card" href="https://github.com/Aransaat/serverless-pipeline"><div class="photo ph-c"></div><b>Serverless AWS Data Pipeline</b><span>S3 · Glue · Athena · least-priv IAM</span></a>
+          <a class="card" href="https://github.com/aransaat"><div class="photo ph-b"></div><b>University Registration DB</b><span>SQL · AWS RDS · RBAC</span></a>
+          <span class="note" style="left:44%;top:-6px;transform:rotate(-8deg)">compliance ↘</span>
+          <span class="note" style="left:4%;top:46%;transform:rotate(-6deg)">cloud</span>
+          <span class="note" style="right:2%;bottom:30%;transform:rotate(-14deg)">detection</span>
+          <span class="note" style="left:30%;bottom:-6px;transform:rotate(-4deg)">databases</span>
+        </div>
+      </div>
+      <div class="center"><a class="btn" href="https://github.com/aransaat">See it on GitHub</a></div>
+    </section>
+  </div>
+
+  <div class="noise torn" data-torn="top" style="background-color:var(--paper);margin-top:-14px;position:relative">
+    <section class="arts" id="arts">
+      <h2>Skills</h2>
+      <div class="strip" tabindex="0" aria-label="Skills, scroll sideways">
+        <figure class="pad" style="margin:0"><div class="skill"><h5>Security</h5><p>Intrusion detection, incident response, firewalls, IAM &amp; least privilege, vulnerability &amp; risk management, forensics, OSINT, HIPAA compliance</p></div><svg data-skyline="5" viewBox="0 0 200 60" preserveAspectRatio="none"></svg><figcaption>blue team notes</figcaption></figure>
+        <figure class="pad" style="margin:0"><div class="skill"><h5>Cloud &amp; Tools</h5><p>AWS (S3, Glue, Athena, QuickSight, RDS, IAM, Config, Security Hub), Azure, Linux, Windows Server, VMware, Docker, Git/GitHub</p></div><svg data-skyline="14" viewBox="0 0 200 60" preserveAspectRatio="none"></svg><figcaption>my stack</figcaption></figure>
+        <figure class="pad" style="margin:0"><div class="skill"><h5>Languages</h5><p>Python, Bash/Shell, SQL, JavaScript, HTML/CSS</p></div><svg data-skyline="23" viewBox="0 0 200 60" preserveAspectRatio="none"></svg><figcaption>print('hi')</figcaption></figure>
+        <figure class="pad" style="margin:0"><div class="skill"><h5>Certifications</h5><p>CompTIA Security+ · AWS Certified AI Practitioner (in progress) · Collin College: IS Cybersecurity, Cybersecurity Infrastructure Tech. (2026), Cloud Infrastructure Tech. (2025)</p></div><svg data-skyline="32" viewBox="0 0 200 60" preserveAspectRatio="none"></svg><figcaption>proof ✶</figcaption></figure>
+      </div>
+      <div class="center"><a class="btn" href="#contacts">Let's talk</a></div>
+    </section>
+
+    <section class="faq-wrap wrap" id="faq">
+      <div class="faq noise torn" data-torn="both">
+        <h2>FAQ</h2>
+        <details><summary>What roles are you looking for?<i>+</i></summary><p>Entry-level SOC analyst, security analyst or cloud engineering positions, including internships.</p></details>
+        <details><summary>Which certifications do you hold?<i>+</i></summary><p>CompTIA Security+. I'm currently working toward the AWS Certified AI Practitioner.</p></details>
+        <details><summary>When do you graduate?<i>+</i></summary><p>I finished my AAS in Information Systems Cybersecurity in 2026 and expect my BAT in Cybersecurity in 2028.</p></details>
+        <details><summary>Can you relocate?<i>+</i></summary><p>Yes. I'm authorized to work in the US and willing to relocate.</p></details>
+      </div>
+    </section>
+
+    <section class="contact wrap" id="contacts">
+      <h2>Contacts</h2>
+      <div class="polaroid">
+        <div class="photo">
+          <svg class="silhouette" viewBox="0 0 100 90"><circle cx="50" cy="28" r="17"/><path d="M14 90c2-26 18-40 36-40s34 14 36 40z"/></svg>
+          <span class="ph">your photo here</span>
+        </div>
+      </div>
+      <p>Get in touch:</p>
+      <div class="stack">
+        <a class="btn" href="https://www.linkedin.com/in/arghavan-saatsaz">LinkedIn<sup>✶✶</sup></a>
+        <a class="btn" href="https://github.com/aransaat">GitHub</a>
+      </div>
+      <div class="email"><span id="mail">Aranisreadytowork@outlook.com</span><button type="button" id="copy">Copy</button></div>
+    </section>
+    <footer>Arghavan Saatsaz · McKinney, TX ✶</footer>
+  </div>
+</div>
+
+<script>
+(function(){
+  // seeded random so the collage looks the same on every load
+  function rng(seed){return function(){seed=(seed*16807)%2147483647;return (seed-1)/2147483646}}
+  const NS="http://www.w3.org/2000/svg";
+  function el(tag,attrs){const e=document.createElementNS(NS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);return e}
+
+  // hand-drawn skylines
+  document.querySelectorAll("svg[data-skyline]").forEach(svg=>{
+    const r=rng(+svg.dataset.skyline*977+13), vb=svg.viewBox.baseVal, W=vb.width, H=vb.height, tall=!!svg.dataset.tall;
+    const g=el("g",{fill:"none",stroke:"#2a2d33","stroke-width":tall?1.1:.9,"stroke-linecap":"round"});
+    let x=-4;
+    while(x<W){
+      const w=(tall?18:14)+r()*(tall?30:22), h=H*(tall?.25+r()*.6:.25+r()*.7), y=H-h;
+      const jit=()=>(r()-.5)*1.4;
+      g.appendChild(el("path",{d:`M${x+jit()} ${H} L${x+jit()} ${y} L${x+w+jit()} ${y+jit()} L${x+w} ${H}`}));
+      if(r()>.55){ // spire
+        const cx=x+w/2; g.appendChild(el("path",{d:`M${cx-w*.2} ${y} L${cx} ${y-h*.18} L${cx+w*.2} ${y}`}));
+      }
+      const cols=Math.max(2,Math.floor(w/6)), step=tall?9:7;
+      for(let wy=y+5; wy<H-6; wy+=step){
+        for(let c=0;c<cols;c++){
+          if(r()<.18)continue;
+          const wx=x+3+c*((w-6)/cols);
+          g.appendChild(el("rect",{x:wx.toFixed(1),y:wy.toFixed(1),width:((w-6)/cols*.55).toFixed(1),height:(step*.45).toFixed(1),"stroke-width":.5}));
+        }
+      }
+      x+=w+(r()*4-1);
+    }
+    svg.appendChild(g);
+  });
+
+  // typewriter keys
+  const rows=["QWERTYUIOP","ASDFGHJKL","ZXCVBNM"], keys=document.getElementById("keys");
+  rows.forEach(rw=>{const d=document.createElement("div");d.className="row";[...rw].forEach(ch=>{const k=document.createElement("span");k.className="key";k.textContent=ch;d.appendChild(k)});keys.appendChild(d)});
+
+  // stars on the envelope
+  const es=document.getElementById("envStars"), sr=rng(99);
+  for(let i=0;i<14;i++){
+    const x=6+sr()*88, y=40+sr()*30, s=1.4+sr()*1.2;
+    es.appendChild(el("path",{d:`M${x} ${y-s} L${x+s*.3} ${y-s*.3} L${x+s} ${y} L${x+s*.3} ${y+s*.3} L${x} ${y+s} L${x-s*.3} ${y+s*.3} L${x-s} ${y} L${x-s*.3} ${y-s*.3}Z`,fill:"#6f7fa8",opacity:.8}));
+  }
+
+  // torn paper edges
+  document.querySelectorAll(".torn").forEach((n,i)=>{
+    const r=rng(i*31+7), mode=n.dataset.torn||"top", D=14, pts=[];
+    const edge=(bottom)=>{const out=[];for(let x=0;x<=100;x+=1.5+r()*2){const j=(r()*D).toFixed(1);out.push(bottom?`${Math.min(x,100).toFixed(1)}% calc(100% - ${j}px)`:`${Math.min(x,100).toFixed(1)}% ${j}px`)}return out};
+    const top=(mode==="top"||mode==="both")?edge(false):["0% 0%","100% 0%"];
+    const bot=(mode==="both")?edge(true).reverse():["100% 100%","0% 100%"];
+    if(top[top.length-1].indexOf("100")!==0)top.push(`100% ${(mode==="none")?0:6}px`);
+    n.style.clipPath=`polygon(${top.concat(bot).join(",")})`;
+    if(mode!=="none")n.style.paddingTop=n.style.paddingTop||"";
+  });
+
+  // copy email
+  const btn=document.getElementById("copy"), mail=document.getElementById("mail");
+  btn.addEventListener("click",()=>{
+    const t=mail.textContent;
+    const sel=()=>{const rg=document.createRange();rg.selectNodeContents(mail);const s=getSelection();s.removeAllRanges();s.addRange(rg)};
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(t).then(()=>{btn.textContent="Copied"},()=>{sel();btn.textContent="Press ⌘/Ctrl+C"});
+    }else{sel();btn.textContent="Press ⌘/Ctrl+C"}
+    setTimeout(()=>btn.textContent="Copy",2200);
+  });
+})();
+</script>
+
+</body>
+</html>
